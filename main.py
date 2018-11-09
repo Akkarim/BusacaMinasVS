@@ -1,6 +1,5 @@
 from random import randint, choice
 import csv
-import pandas as pd
 j1="" # Jugador 1
 j2="" # Jugador 2 
 M=[] # Matrix
@@ -13,13 +12,13 @@ def crearMatriz(): #Crea la matriz de 30x30 con igual cantidad de números pares
         cImpares = 0
         global M
         M = []
-        for i in range(30):
+        for i in range(10):
             M.append([]) #La convierte matriz
-            for j in range(30):
+            for j in range(10):
                 M[i].append(randint(0, 9)) #Genera un número aleatorio entre 0 y 9
-                if cPares == 450 and cImpares != 450: #Si ya hay 450 pares llena con impares
+                if cPares == 50 and cImpares != 50: #Si ya hay 450 pares llena con impares
                     M[i][j] = choice([1,3,5,7,9]) # Random de Impares
-                elif cPares != 450 and cImpares == 450: #Si ya hay 450 pares llena con impares
+                elif cPares != 50 and cImpares == 50: #Si ya hay 450 pares llena con impares
                     M[i][j] = choice([0,2,4,6,8]) # Random de Pares            
                 n = M[i][j]
                 if n%2 == 0: #Revisa si es Par
@@ -38,13 +37,12 @@ def crearMatriz(): #Crea la matriz de 30x30 con igual cantidad de números pares
             i = 0
             for row in reader:
                 M.append([]) #La convierte matriz
-                for j in range(30):
+                for j in range(10):
                     row[j]=int(row[j])
                 M[i] = row
                 i=i+1
                 
-                # do something here with `row`
-def jugadores(): # Talvez no haga falta en una fuinción
+def jugadores():
     global j1
     global j2
     print("Ingrese el nombre del jugador 1: ")
