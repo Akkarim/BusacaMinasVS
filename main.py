@@ -19,9 +19,9 @@ def crearMatriz(): #Crea la matriz de 30x30 con igual cantidad de números pares
             M.append([]) #La convierte matriz
             for j in range(10):
                 M[i].append(randint(0, 9)) #Genera un número aleatorio entre 0 y 9
-                if cPares == 50 and cImpares != 50: #Si ya hay 450 pares llena con impares
+                if cPares == 50 and cImpares != 50: #Si ya hay 50 pares llena con impares
                     M[i][j] = choice([1,3,5,7,9]) # Random de Impares
-                elif cPares != 50 and cImpares == 50: #Si ya hay 450 pares llena con impares
+                elif cPares != 50 and cImpares == 50: #Si ya hay 50 pares llena con impares
                     M[i][j] = choice([0,2,4,6,8]) # Random de Pares            
                 n = M[i][j]
                 if n%2 == 0: #Revisa si es Par
@@ -49,7 +49,6 @@ def jugada(Matriz):
     global j2
     global M
     global eleccion
-    print(eleccion)
     intentosJ1 = 0 # a los 3 termina el juego
     intentosJ2 = 0 # a los 3 termina el juego
     M = Matriz
@@ -68,8 +67,10 @@ def jugada(Matriz):
         p2 = int(datos[1][1])
         intentosJ1 = int(datos[0][2])
         intentosJ1 = int(datos[1][2])
-        print("El jugador 1 era: " + j1 + " con " + str(p1) + " puntos y " + str(intentosJ1) + " intentos.")
-        print("El jugador 2 era: " + j2 + " con " + str(p2) + " puntos y " + str(intentosJ2) + " intentos.")
+        print("El jugador 1 era: " + j1 + " con " + str(p1) + " puntos y " +
+              str(intentosJ1) + " intentos.")
+        print("El jugador 2 era: " + j2 + " con " + str(p2) + " puntos y " + 
+              str(intentosJ2) + " intentos.")
     elif eleccion == "n":    
         print("Ingrese el nombre del jugador 1: ")
         j1 = input()
@@ -77,10 +78,8 @@ def jugada(Matriz):
         print("Ingrese el nombre del jugador 2: ")
         j2 = input()
         print(" ")
-        
     print(j1 + " va a jugar por los números impares.")
     print(j2 + " va a jugar por los números pares.") 
-    
     print(" ") 
     salir = 1
     while intentosJ1 < 3 and intentosJ2 < 3 and  salir==1:
@@ -128,7 +127,6 @@ def jugada(Matriz):
             sc2 = str(casilla2) #El str de la casilla para imprimirlo
             print(j2 + " Su casilla es: " + sc2)
             print(" ")
-        
             if casilla2%2 != 0 : #Si es impar
                 p2 = p2+1
                 print("¡Ganó un punto!")
@@ -177,18 +175,8 @@ def jugada(Matriz):
             print("¡¡FELICIDADES " + j1 +" GANÓ!!")
         if p1 < p2:
             print("¡¡FELICIDADES " + j2 +" GANÓ!!")
-            
-
-#datos=[] #Vector para guardar los datos  
-#with open('Datos.csv') as csvarchivo:
-#    entrada = csv.reader(csvarchivo)
-#    for reg in entrada:
-#        datos.append(reg)
-#
-#print(datos[0][1])
 
 crearMatriz()
-#jugadores()
 jugada(M)
 
 
